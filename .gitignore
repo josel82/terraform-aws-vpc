@@ -1,6 +1,6 @@
 .terraform/
-mykey
-mykey.pub
+keys/
 changes.terraform
 terraform.tfstate
+terraform.tfstate.backup
 terraform.tfvars
