@@ -1,0 +1,6 @@
+.terraform/
+mykey
+mykey.pub
+changes.terraform
+terraform.tfstate
+terraform.tfvars
