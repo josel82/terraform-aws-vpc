@@ -26,3 +26,7 @@ variable "AMIS" {
 }
 
 variable "PUBLIC_IP" {}
+
+variable "INSTANCE_DEVICE_NAME" {
+  default = "/dev/xvdh"
+}

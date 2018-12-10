@@ -11,9 +11,11 @@ resource "aws_instance" "eg1" {
 
   #Public SSH key
   key_name = "${aws_key_pair.myKeyPair.key_name}"
+
+  user_data = "${data.template_cloudinit_config.cloudinit-example.rendered}"
 }
 
-#Volume resourse
+#Volume resource
 resource "aws_ebs_volume" "ebs-volume-1" {
   availability_zone = "${lookup(var.AWS_AVAILABILITY_ZONES, "zone-1")}"
   size              = 20
@@ -26,7 +28,7 @@ resource "aws_ebs_volume" "ebs-volume-1" {
 
 #Volume attachement
 resource "aws_volume_attachment" "ebs-volume-1-attachment" {
-  device_name = "/dev/xvdh"
+  device_name = "${var.INSTANCE_DEVICE_NAME}"
   volume_id   = "${aws_ebs_volume.ebs-volume-1.id}"
   instance_id = "${aws_instance.eg1.id}"
 }
