@@ -17,8 +17,3 @@ resource "aws_route53_record" "www-record" {
   ttl     = "300"
   records = ["${aws_instance.eg1.public_ip}"]
 }
-
-#Output AWS name servers
-output "name-servers" {
-  value = "${aws_route53_zone.avila-com.name_servers}"
-}

@@ -7,7 +7,7 @@ resource "aws_instance" "eg1" {
   subnet_id = "${aws_subnet.main-public-1.id}"
 
   #Security group
-  vpc_security_group_ids = ["${aws_security_group.allow-ssh.id}"]
+  vpc_security_group_ids = ["${aws_security_group.eg1-instance.id}"]
 
   #Public SSH key
   key_name = "${aws_key_pair.myKeyPair.key_name}"
@@ -31,8 +31,4 @@ resource "aws_volume_attachment" "ebs-volume-1-attachment" {
   device_name = "${var.INSTANCE_DEVICE_NAME}"
   volume_id   = "${aws_ebs_volume.ebs-volume-1.id}"
   instance_id = "${aws_instance.eg1.id}"
-}
-
-output "instance-public-ip" {
-  value = "${aws_instance.eg1.public_ip}"
 }
