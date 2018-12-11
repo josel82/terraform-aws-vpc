@@ -4,4 +4,4 @@ In this example, I am trying to recreate the following network architecture in A
 
 ![GitHub Logo](https://josel82.github.io/Images/terraform/slide1.png)
 
-I have designed this architecture to be deployed in AWS eu-west-1 region (Ireland).
+This architecture has been designed to be deployed in AWS eu-west-1 region (Ireland).
