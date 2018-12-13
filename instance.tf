@@ -12,6 +12,9 @@ resource "aws_instance" "eg1" {
   #Public SSH key
   key_name = "${aws_key_pair.myKeyPair.key_name}"
 
+  #Role
+  iam_instance_profile = "${aws_iam_instance_profile.s3-bucket-example-role-instance-profile.name}"
+
   user_data = "${data.template_cloudinit_config.cloudinit-example.rendered}"
 }
 
